@@ -30,3 +30,13 @@ class AddUser(APIView):
         else:
             print(returnData)
             return Response(returnData, status=status.HTTP_400_BAD_REQUEST)
+
+class AddTenant(APIView):
+    def post(self, request, format=None):
+        request.data['PubIp']=getUserIP(request)
+        returnData=ApiTenants.addTenant(self,request.data)
+        if returnData['RS'] == "SUCCESS":
+            return Response(returnData, status=status.HTTP_202_ACCEPTED)
+        else:
+            print(returnData)
+            return Response(returnData, status=status.HTTP_400_BAD_REQUEST)

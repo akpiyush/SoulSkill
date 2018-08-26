@@ -1,4 +1,5 @@
 from ..models import User
+from . import ApiTenants
 from django.conf import settings
 import sys,inspect
 FileName=((inspect.stack()[0][1]).split('/')[-1]).split('.')[0]
@@ -17,14 +18,17 @@ def addUser(self, request, format=None):
         return sendData'''
     try:
         sendData = {}
-        if len(User.objects.all()) == 3:
+        if len(User.objects.all()) == 20:
             print("Database Full")
             sendData['RS'] = "SUCCESS"
             sendData['RV'] = None
             #return sendData
         else:
-            print("Database has space")
-            user,created = User.objects.get_or_create(Email=request['Email'])
+            #print("Database has space")
+            tenantData = ApiTenants.addTenant(self, request, format=None)
+            tenant = Tenants.objects.get(TenantID=int(tenantData['RV']['TenantID']))
+
+            user,created = User.objects.get_or_create(TenantID=tenant, Email=request['Email'])
             if "Name" in request:
                 user.Name = request['Name'].title()
             if "Email" in request:
