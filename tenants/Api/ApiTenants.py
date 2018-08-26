@@ -1,8 +1,9 @@
-from ..models import User
+from ..models import *
 from django.conf import settings
 import sys,inspect
 FileName=((inspect.stack()[0][1]).split('/')[-1]).split('.')[0]
 
+print("**********************************************************************")
 def addTenant(self, request, format=None):
 
     FunctionName = FileName + "-" + sys._getframe().f_code.co_name
@@ -16,7 +17,7 @@ def addTenant(self, request, format=None):
         return sendData'''
     try:
         sendData = {}
-        tenant,created = Tenants.objects.get_or_create(TenantName=request['TenantName'])
+        tenant,created = Tenants.objects.get_or_create(TenantName=request['TenantName'].title())
         tenant.save()
         #sendData['RC'] = ErrorCodes.ERROR_CODE_LIST["SUCCESS"]
         sendData['RS'] = "SUCCESS"

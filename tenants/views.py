@@ -11,7 +11,7 @@ import responses
 import json
 
 from .models import *
-from .Api import ApiUsers
+from .Api import ApiUsers,ApiTenants
 
 def getUserIP(request):
     x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
@@ -29,6 +29,26 @@ class AddUser(APIView):
             return Response(returnData, status=status.HTTP_202_ACCEPTED)
         else:
             print(returnData)
+            return Response(returnData, status=status.HTTP_400_BAD_REQUEST)
+
+class EditUser(APIView):
+    def post(self, request, format=None):
+        request.data['PubIp']=getUserIP(request)
+        returnData=ApiUsers.editUser(self,request.data)
+        if returnData['RS'] == "SUCCESS":
+            return Response(returnData, status=status.HTTP_202_ACCEPTED)
+        else:
+            #print(returnData)
+            return Response(returnData, status=status.HTTP_400_BAD_REQUEST)
+
+class DeleteUser(APIView):
+    def post(self, request, format=None):
+        request.data['PubIp']=getUserIP(request)
+        returnData=ApiUsers.deleteUser(self,request.data)
+        if returnData['RS'] == "SUCCESS":
+            return Response(returnData, status=status.HTTP_202_ACCEPTED)
+        else:
+            #print(returnData)
             return Response(returnData, status=status.HTTP_400_BAD_REQUEST)
 
 class AddTenant(APIView):
