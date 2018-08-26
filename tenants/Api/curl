@@ -1,4 +1,0 @@
-curl -X POST http://127.0.0.1:8000/tenant/adduser/ -d '{"Name":"Piyush","Email":"Kuchbhi@gmail.com","Contact":55,"Address":"abcdefgh","IpAddress": "192.168.0.3"}' -H "Content-Type: application/json"
-
-
-curl -X POST http://127.0.0.1:8000/tenant/addtenant/ -d '{"TenantName":"Student","IpAddress": "192.168.0.3"}' -H "Content-Type: application/json"
