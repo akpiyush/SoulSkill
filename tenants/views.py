@@ -48,6 +48,15 @@ class DeleteUser(APIView):
         else:
             return Response(returnData, status=status.HTTP_400_BAD_REQUEST)
 
+class ViewTenentUser(APIView):
+    def post(self, request, format=None):
+        request.data['PubIp']=getUserIP(request)
+        returnData=ApiUsers.viewTenentUser(self,request.data)
+        if returnData['RS'] == "SUCCESS":
+            return Response(returnData, status=status.HTTP_202_ACCEPTED)
+        else:
+            return Response(returnData, status=status.HTTP_400_BAD_REQUEST)
+
 class AddTenant(APIView):
     def post(self, request, format=None):
         request.data['PubIp']=getUserIP(request)
