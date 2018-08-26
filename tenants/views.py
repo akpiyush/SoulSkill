@@ -28,7 +28,6 @@ class AddUser(APIView):
         if returnData['RS'] == "SUCCESS":
             return Response(returnData, status=status.HTTP_202_ACCEPTED)
         else:
-            print(returnData)
             return Response(returnData, status=status.HTTP_400_BAD_REQUEST)
 
 class EditUser(APIView):
@@ -38,7 +37,6 @@ class EditUser(APIView):
         if returnData['RS'] == "SUCCESS":
             return Response(returnData, status=status.HTTP_202_ACCEPTED)
         else:
-            #print(returnData)
             return Response(returnData, status=status.HTTP_400_BAD_REQUEST)
 
 class DeleteUser(APIView):
@@ -48,7 +46,6 @@ class DeleteUser(APIView):
         if returnData['RS'] == "SUCCESS":
             return Response(returnData, status=status.HTTP_202_ACCEPTED)
         else:
-            #print(returnData)
             return Response(returnData, status=status.HTTP_400_BAD_REQUEST)
 
 class AddTenant(APIView):
@@ -58,5 +55,4 @@ class AddTenant(APIView):
         if returnData['RS'] == "SUCCESS":
             return Response(returnData, status=status.HTTP_202_ACCEPTED)
         else:
-            print(returnData)
             return Response(returnData, status=status.HTTP_400_BAD_REQUEST)
