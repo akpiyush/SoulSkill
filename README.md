@@ -14,16 +14,16 @@
 
 #Steps to test the project:
 1. To Add a user:
--  curl -X POST http://127.0.0.1:8000/tenant/adduser/ -d '{"Name":"Abhishek Kumar Piyush","Email":"akpiyush437@gmail.com","Contact":8939420437,"Address":"patna","IpAddress": "192.168.0.3","Token":"SoUlSkIl_AsSiNmEnT","TenantName":"Student"}' -H "Content-Type: application/json"
+-  curl -X POST http://05257e38.ngrok.io/tenant/adduser/ -d '{"Name":"Abhishek Kumar Piyush","Email":"akpiyush437@gmail.com","Contact":8939420437,"Address":"patna","IpAddress": "192.168.0.3","Token":"SoUlSkIl_AsSiNmEnT","TenantName":"Student"}' -H "Content-Type: application/json"
 
 2. To edit a user details:
-- curl -X POST http://127.0.0.1:8000/tenant/edituser/ -d '{"Name":"Piyush","Email":"akpiyush437@gmail.com","Contact":8939420437,"Address":"patna","IpAddress": "192.168.0.3","Token":"SoUlSkIl_AsSiNmEnT","TenantName":"Student"}' -H "Content-Type: application/json"
+- curl -X POST http://05257e38.ngrok.io/tenant/edituser/ -d '{"Name":"Piyush","Email":"akpiyush437@gmail.com","Contact":8939420437,"Address":"patna","IpAddress": "192.168.0.3","Token":"SoUlSkIl_AsSiNmEnT","TenantName":"Student"}' -H "Content-Type: application/json"
 
 3. To delete a user:
-- curl -X POST http://127.0.0.1:8000/tenant/deleteuser/ -d '{"Email":"akpiyush437@gmail.com","IpAddress": "192.168.0.3","Token":"SoUlSkIl_AsSiNmEnT"}' -H "Content-Type: application/json"
+- curl -X POST http://05257e38.ngrok.io/tenant/deleteuser/ -d '{"Email":"akpiyush437@gmail.com","IpAddress": "192.168.0.3","Token":"SoUlSkIl_AsSiNmEnT"}' -H "Content-Type: application/json"
 
 4. View all user in a tenant:
-- curl -X POST http://127.0.0.1:8000/tenant/viewtenentuser/ -d '{"IpAddress": "192.168.0.3","TenantName":"Parent","Token":"SoUlSkIl_AsSiNmEnT"}' -H "Content-Type: application/json"
+- curl -X POST http://05257e38.ngrok.io/tenant/viewtenentuser/ -d '{"IpAddress": "192.168.0.3","TenantName":"Parent","Token":"SoUlSkIl_AsSiNmEnT"}' -H "Content-Type: application/json"
 
 5. Add a tenant:
-- curl -X POST http://127.0.0.1:8000/tenant/addtenant/ -d '{"TenantName":"Student","IpAddress": "192.168.0.3","Token":"SoUlSkIl_AsSiNmEnT"}' -H "Content-Type: application/json"
+- curl -X POST http://05257e38.ngrok.io/tenant/addtenant/ -d '{"TenantName":"Student","IpAddress": "192.168.0.3","Token":"SoUlSkIl_AsSiNmEnT"}' -H "Content-Type: application/json"
